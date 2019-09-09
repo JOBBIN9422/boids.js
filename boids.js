@@ -188,20 +188,6 @@ class Boid
     }
 }
 
-//init rendering
-let canvas = document.getElementById('game-window');
-canvas.width = window.innerWidth;
-canvas.height = window.innerHeight;
-let renderContext = canvas.getContext('2d');
-
-let boids = [];
-for (let i = 0; i < 60; i++)
-{
-    let randX = Math.floor(Math.random() * canvas.width);
-    let randY = Math.floor(Math.random() * canvas.height);
-
-    boids.push(new Boid(randX, randY, canvas.width, canvas.height, boids));
-}
 
 function getRandomColor()
 {
@@ -247,6 +233,21 @@ function eventLoop(boids)
     }
 
     requestAnimationFrame(function() { eventLoop(boids) });
+}
+
+//init rendering
+let canvas = document.getElementById('game-window');
+canvas.width = window.innerWidth;
+canvas.height = window.innerHeight;
+let renderContext = canvas.getContext('2d');
+
+let boids = [];
+for (let i = 0; i < 60; i++)
+{
+    let randX = Math.floor(Math.random() * canvas.width);
+    let randY = Math.floor(Math.random() * canvas.height);
+
+    boids.push(new Boid(randX, randY, canvas.width, canvas.height, boids));
 }
 
 eventLoop(boids);
