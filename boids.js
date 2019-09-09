@@ -237,8 +237,8 @@ function eventLoop(boids)
 
 //init rendering
 let canvas = document.getElementById('game-window');
-canvas.width = window.innerWidth;
-canvas.height = window.innerHeight;
+canvas.width = canvas.clientWidth;
+canvas.height = canvas.clientHeight;
 let renderContext = canvas.getContext('2d');
 
 let boids = [];
